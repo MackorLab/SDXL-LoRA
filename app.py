@@ -170,13 +170,13 @@ inputs = [
         gr.Slider(512, 1024, 768, step=128, label='Высота изображения'),
         gr.Slider(512, 1024, 768, step=128, label='Ширина изображения'),
         gr.Slider(1, maximum=15, value=7, step=0.1, label='Шкала расхождения'),
-        gr.Slider(1, maximum=100, value=25, step=1, label='Количество итераций'),
+        #gr.Slider(1, maximum=100, value=25, step=1, label='Количество итераций'),
         gr.Slider(label="Точка старта функции", minimum=1, step=1, maximum=9999999999999999, randomize=True)
 ]
 
 outputs = gr.outputs.Image(type="pil")
 
-def inference(source_prompt, negative_prompt, height, width, cfg, iterations, seed):
+def inference(source_prompt, negative_prompt, height, width, cfg, seed):
     seed = convert_seed_to_int(seed)
     return gen_image(source_prompt, negative_prompt, height, width, cfg, seed)
 
